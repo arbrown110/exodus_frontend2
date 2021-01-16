@@ -1,13 +1,16 @@
 import mama from './mama.gif';
 import './App.css';
-import CategoriesContainer from './containers/CategoriesContainer';
+import AdventuresContainer from './containers/AdventuresContainer';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './components/Home'
 import Navigation from './components/Navigation'
-import IngredientsContainer from './containers/IngredientsContainer'
-import IngredientMealsList from './containers/IngredientMealsList'
+import EventsContainer from './containers/EventsContainer'
+import EventsList from './containers/EventsList'
 
-function App() {
+import React from 'react';
+
+class App extends React.Component {
+  render() {
   return (
     <div className="App">
       <header className="App-header">
@@ -29,15 +32,16 @@ function App() {
         <Navigation />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/categories" component={CategoriesContainer} />
-          <Route exact path="/ingredients" component={IngredientsContainer} />
-          <Route exact path="/ingredients/:id" component={IngredientMealsList} />
+          <Route exact path="/adventures" component={AdvenutresContainer} />
+          <Route exact path="/events" component={EventsContainer} />
+          <Route exact path="/events/:id" component={EventsList} />
 
         </Switch>
       </div>
       </Router>
     </div>
   );
+}
 }
 
 export default App;
