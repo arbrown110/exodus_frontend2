@@ -32,7 +32,7 @@ class App extends React.Component {
         <Navigation />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/adventures" component={AdvenutresContainer} />
+          <Route exact path="/adventures" component={AdventuresContainer} />
           <Route exact path="/events" component={EventsContainer} />
           <Route exact path="/events/:id" component={EventsList} />
 
