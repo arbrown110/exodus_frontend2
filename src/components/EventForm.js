@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { addEvent } from '../../actions/eventsActions'
-import {Form, Button} from 'react-bootstrap';
+
 class EventInput extends Component {
     constructor() {
       super()
@@ -14,7 +14,7 @@ class EventInput extends Component {
 
     handleChange = (e) => {
         this.setState({
-          [e.target.title]: event.target.value
+          [e.target.title]: e.target.value
         })
     }
 
@@ -34,9 +34,9 @@ class EventInput extends Component {
             <form onSubmit={(e) => this.handleSubmit(e)}>
               <label >Add Event:</label>
               <input placeholder="Add a new entry title.." name="title" required value={this.state.title} onChange={(e) => this.handleChange(e)} />
-              <label >Add Description:</label>
+              <textarea >Add Description:</textarea>
               <input placeholder="Describe what happened.." name="desciption" required value={this.state.description} onChange={(e) => this.handleChange(e)} />
-              <label >Add Phrase:</label>
+              <textarea >Add Phrase:</textarea>
               <input placeholder="what should I say.." name="krio" required value={this.state.krio} onChange={(e) => this.handleChange(e)} />
             <button type="submit">Add Event</button>
             
