@@ -1,19 +1,41 @@
 import React from 'react'
-import EventContainer from '../containers/EventContainer'
+import EventForm from '../components/EventForm'
+import { connect } from 'react-redux'
+import { fetchAdventures} from '../actions/AdventuresActions'
 
-const Adventure = (props) => {
-    let adventure = props.adventures.filter(adv => adv.id == props.match.params.id)[0]
 
-    return (
-        <div>
-            <h2>{adventure ? adventure.name : null}</h2>
-            <br></br>
-            {adventure ? adventure.image_url : null}
-
-            <EventContainer adventure={adventure} />
-
-        </div>
-    )
+class Adventure extends React.Component {
+    componentDidMount () {
+        this.props.fetchAdventures(this.props.match.params.id)
+        
+    }
+    render() {
+        const adventures = this.props.avdentures.map
+        
+        return (
+            <div>
+                <ul key={adventures.id}>
+                    <h2>{adventures.name}</h2>
+                    {adventures.eventList.map(event => <ul key={event.id}><li>{event.title} {event.description} {event.krio} <button>Delete</button></li></ul>)}
+                </ul>
+                <EventForm adventureID={this.props.match.params.id}/>
+            </div>
+        )
+    }
+      
+    
 }
 
-export default Adventure
+const mapStateToProps = (state) => {
+    debugger
+    return {avdentures: state.adventureReducer.avdentures,
+    loading: state.adventureReducer.loading}
+}
+export default connect(mapStateToProps, {fetchAdventures})(Adventure);
+
+//check to see if I recieve any data from state. this.props.avdentures << how to check
+
+//map over this.props.avdentures give variable 
+
+// take out event connection and use in show once user clicks on it.
+

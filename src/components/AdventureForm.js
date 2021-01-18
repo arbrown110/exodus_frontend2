@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { addAdventure } from '../../actions/adventuresActions';
+import { addAdventure } from '../actions/AdventuresActions';
 import { withRouter } from "react-router";
 import { connect } from 'react-redux'
 
 
-const AdventureFormWithRouter = withRouter(AdventureForm)
+
 
 class AdventureForm extends Component {
     constructor() {
@@ -23,7 +23,7 @@ class AdventureForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        thie.props.addAdventure(this.state);
+        this.props.addAdventure(this.state);
         this.setState({
             name: "",
             image_url: ""
@@ -33,22 +33,24 @@ class AdventureForm extends Component {
     render() {
         return(
             <form onSubmit={(e) => this.handleSubmit(e)}>
-            <h2>Exodus : Sierra Leone</h2>
+            <h2>Add New Topic: </h2>
             
             <label>Topic's Name </label>
             <input name="name" required value={this.state.name} onChange={(e) => this.handleChange(e)}
                 />
-            
-
-            
+                <br>
+                </br>
+            <br>
+            </br>
             <label>Image</label>
             <textarea name="image_url" required value={this.state.image_url} onChange={this.handleChange} />
+            <br></br>
             <button type="submit">Add Entry</button>
         </form>
         )
     }
 }
-
+const AdventureFormWithRouter = withRouter(AdventureForm)
 
 
 

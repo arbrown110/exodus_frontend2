@@ -1,6 +1,6 @@
-import React from 'React'
+import React from 'react'
 import { connect } from 'react-redux'
-import { deleteEvent } from '../actions/AdventureActions'
+import { deleteEvent } from '../actions/EventsActions'
 
 const EventList = (props) => {
     const handleClick = (event) => {
